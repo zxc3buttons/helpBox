@@ -1,10 +1,8 @@
 package com.example.helpbox.rest;
 
 import com.example.helpbox.model.User;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,7 +12,7 @@ import java.util.stream.Stream;
 @RequestMapping("/api/v1/users")
 public class UserControllerV1 {
 
-    private List<User> USERS = Stream.of(
+    private final List<User> USERS = Stream.of(
             new User(1L, "Ivan", "Ivanov"),
             new User(2L, "Sergey", "Sergeev"),
             new User(3L, "Petr", "Petrov")
@@ -26,9 +24,23 @@ public class UserControllerV1 {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasAuthority('users:read')")
     public User getById(@PathVariable Long id) {
         return USERS.stream().filter(user -> user.getId().equals(id))
                 .findFirst()
                 .orElse(null);
+    }
+
+    @PostMapping
+    @PreAuthorize("hasAuthority('users:write')")
+    public User create(@RequestBody User user) {
+        this.USERS.add(user);
+        return user;
+    }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasAuthority('users:write')")
+    public void deleteById(@PathVariable Long id) {
+        this.USERS.removeIf(user -> user.getId().equals(id));
     }
 }
