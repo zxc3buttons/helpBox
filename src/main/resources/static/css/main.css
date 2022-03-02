@@ -1,0 +1,456 @@
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.popup:target {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup_body {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+}
+
+.popup_content {
+    position: absolute;
+    width: 432px;
+    height: 499px;
+    background: linear-gradient(rgb(97, 9, 197), #C430F8);
+    border-radius: 15px;
+    padding: 30px;
+    /* box-shadow: 10px 5px 5px rgb(0, 0, 0);*/
+}
+
+.popup_close {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 20px;
+    color: #000000;
+    text-decoration: none;
+}
+
+.popup_title {
+    margin-top: 5px;
+    position: relative;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    text-align: center;
+    line-height: 12px;
+    text-indent: 2px;
+    color: #ffffff;
+}
+
+.email {
+    margin-top: 40px;
+    position: relative;
+    width: 400px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 9%;
+    border-radius: 0px;
+    background: #FFFFFF;
+    /* box-shadow: 5px 10px #9201c7;*/
+}
+
+.mail {
+    position: relative;
+    width: 400px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0px;
+    background: #FFFFFF;
+    /* box-shadow: 5px 10px #9201c7;*/
+}
+
+.mail p {
+    position: absolute;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 10px;
+    padding-left: 5px;
+    text-indent: 2px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.pass {
+    margin-top: 30px;
+    position: relative;
+    width: 400px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 9%;
+    border-radius: 0px;
+    background: #FFFFFF;
+    /* box-shadow: 5px 10px #9201c7; */
+}
+
+.pasword {
+    position: relative;
+    width: 400px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0px;
+    background: #FFFFFF;
+}
+
+.password-control {
+    position: absolute;
+    top: 15px;
+    right: 6px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: url(/images/eyeclose.svg) 0 0 no-repeat;
+}
+
+.password-control.view {
+    background: url(/images/eyeopen.svg) 0 0 no-repeat;
+}
+
+.pasword p {
+    position: absolute;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 10px;
+    padding-left: 5px;
+    text-indent: 2px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.names {
+    margin-top: 30px;
+    position: relative;
+    width: 400px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 9%;
+    border-radius: 0px;
+    background: #FFFFFF;
+}
+
+.name {
+    position: relative;
+    width: 400px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0px;
+    background: #FFFFFF;
+    /* box-shadow: 5px 10px #9201c7; */
+}
+
+.name p {
+    position: absolute;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 10px;
+    padding-left: 5px;
+    text-indent: 2px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.surnames {
+    margin-top: 30px;
+    position: relative;
+    width: 400px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    top: 9%;
+    border-radius: 0px;
+    background: #FFFFFF;
+}
+
+.surname {
+    position: relative;
+    width: 400px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0px;
+    background: #FFFFFF;
+    /* box-shadow: 5px 10px #9201c7; */
+}
+
+.surname p {
+    position: absolute;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 10px;
+    padding-left: 5px;
+    text-indent: 2px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.popup_btn {
+    margin-top: 330px;
+    position: absolute;
+    width: 400px;
+    height: 70px;
+    margin-left: 20px;
+    top: 16%;
+    background: rgba(48, 248, 196, 0.8);
+    border-radius: 40px;
+    /* box-shadow: 5px 10px #9201c7; */
+}
+
+.popup_btn p {
+    position: relative;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    bottom: 15px;
+    line-height: auto;
+    text-indent: 2px;
+    text-align: center;
+    color: #FFFFFF;
+    transform: rotate(0.5deg);
+}
+
+@media(max-width:700px) {
+    .popup {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        top: 0;
+        left: 0;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .popup:target {
+        opacity: 1;
+        visibility: visible;
+    }
+    .popup_body {
+        min-height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 10px;
+    }
+    .popup_content {
+        position: absolute;
+        width: 232px;
+        height: 299px;
+        background: linear-gradient(rgb(97, 9, 197), #C430F8);
+        border-radius: 15px;
+        padding: 30px;
+        /* box-shadow: 10px 5px 5px rgb(0, 0, 0);*/
+    }
+    .popup_close {
+        position: absolute;
+        right: 20px;
+        top: 10px;
+        font-size: 20px;
+        color: #000000;
+        text-decoration: none;
+    }
+    .popup_title {
+        margin-top: 5px;
+        position: relative;
+        font-family: Lato;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 25px;
+        text-align: center;
+        line-height: 12px;
+        text-indent: 2px;
+        color: #ffffff;
+    }
+    .email {
+        margin-top: 20px;
+        position: relative;
+        width: 230px;
+        height: 30px;
+        top: 9%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0px;
+        background: #FFFFFF;
+        /* box-shadow: 5px 10px #9201c7;*/
+    }
+    .mail {
+        position: relative;
+        width: 230px;
+        height: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0px;
+        background: #FFFFFF;
+        /* box-shadow: 5px 10px #9201c7;*/
+    }
+    .mail p {
+        position: absolute;
+        font-family: Lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 10px;
+        padding-left: 5px;
+        text-indent: 2px;
+        color: rgba(0, 0, 0, 0.5);
+    }
+    .pass {
+        margin-top: 20px;
+        position: relative;
+        width: 230px;
+        height: 30px;
+        top: 9%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0px;
+        background: #FFFFFF;
+        /* box-shadow: 5px 10px #9201c7;*/
+    }
+    .pasword {
+        position: relative;
+        width: 230px;
+        height: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0px;
+        background: #FFFFFF;
+        /* box-shadow: 5px 10px #9201c7;*/
+    }
+    .pasword p {
+        position: absolute;
+        font-family: Lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 10px;
+        padding-left: 5px;
+        text-indent: 2px;
+        color: rgba(0, 0, 0, 0.5);
+    }
+    .names {
+        margin-top: 20px;
+        position: relative;
+        width: 230px;
+        height: 30px;
+        top: 9%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0px;
+        background: #FFFFFF;
+        /* box-shadow: 5px 10px #9201c7;*/
+    }
+    .name {
+        position: relative;
+        width: 230px;
+        height: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0px;
+        background: #FFFFFF;
+        /* box-shadow: 5px 10px #9201c7;*/
+    }
+    .name p {
+        position: absolute;
+        font-family: Lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 10px;
+        padding-left: 5px;
+        text-indent: 2px;
+        color: rgba(0, 0, 0, 0.5);
+    }
+    .surnames {
+        margin-top: 20px;
+        position: relative;
+        width: 230px;
+        height: 30px;
+        top: 9%;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0px;
+        background: #FFFFFF;
+        /* box-shadow: 5px 10px #9201c7;*/
+    }
+    .surname {
+        position: relative;
+        width: 230px;
+        height: 30px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 0px;
+        background: #FFFFFF;
+        /* box-shadow: 5px 10px #9201c7;*/
+    }
+    .surname p {
+        position: absolute;
+        font-family: Lato;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 10px;
+        padding-left: 5px;
+        text-indent: 2px;
+        color: rgba(0, 0, 0, 0.5);
+    }
+    .popup_btn {
+        margin-top: 230px;
+        position: absolute;
+        width: 200px;
+        height: 35px;
+        margin-left: 20px;
+        background: rgba(48, 248, 196, 0.8);
+        border-radius: 20px;
+        /* box-shadow: 5px 10px #9201c7; */
+    }
+    .popup_btn p {
+        position: relative;
+        font-family: Lato;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        bottom: 15px;
+        line-height: auto;
+        text-indent: 2px;
+        text-align: center;
+        color: #FFFFFF;
+        transform: rotate(0.5deg);
+    }
+    .password-control {
+        position: absolute;
+        top: 15px;
+        right: 6px;
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background: url(/static/images/eyeclose.svg) 0 0 no-repeat;
+    }
+    .password-control.view {
+        background: url(/static/images/eyeopen.svg) 0 0 no-repeat;
+    }
+}
