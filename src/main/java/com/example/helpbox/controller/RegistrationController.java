@@ -31,7 +31,7 @@ public class RegistrationController {
     @GetMapping("/registration")
     public String registration(Model model) {
         model.addAttribute("user", new User());
-        return "greeting";
+        return "reg";
     }
 
     @PostMapping("/registration")
@@ -41,10 +41,10 @@ public class RegistrationController {
         model.addAttribute("user", user);
 
         if(bindingResult.hasErrors())
-            return "greeting";
+            return "reg";
 
         if (userFromDb.isPresent()) {
-            return "greeting";
+            return "reg";
         }
 
         //user.setEmail();

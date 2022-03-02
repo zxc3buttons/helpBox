@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: white;
+}
+
+header {
+    position: absolute;
+    width: 100%;
+    height: 64px;
+    background: #30F8C4;
+    margin: 0 auto;
+}
+
+.top-menu ul li a {
+    display: block;
+    width: 171px;
+    text-decoration: none;
+    font-family: "Exo2-Medium", sans-serif;
+    font-size: 17px;
+    color: white;
+    height: 55px;
+    padding-top: 25px;
+    cursor: pointer;
+}
+
+.top-menu {
+    width: 685px;
+    height: 80px;
+    float: left;
+}
+
+.top-menu ul li {
+    list-style: none;
+    float: left;
+    text-align: center;
+}
+
+.block-top-auth {
+    visibility: hidden;
+}

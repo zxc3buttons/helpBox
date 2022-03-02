@@ -2,32 +2,47 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>Please sign in</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet"
-          crossorigin="anonymous" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>HelpBox</title>
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/static/css/auth.css">
+    <!-- REG JS -->
+    <script src="/static/js/reg.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-<div class="container">
-    <form class="form-signin" method="post" action="/auth/login">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <p>
-            <label for="username" class="sr-only">Username</label>
-            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
-        </p>
-        <p>
-            <label for="password" class="sr-only">Password</label>
-            <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-        </p>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
-</div>
+    <div class="container">
+        <div class="auth">
+            <div class="auth_body">
+                <div class="auth_content">
+                    <a href="greeting.html" class="auth_close"><img src="\static\images\close.png" width=15px; higth=15px; alt="X"></a>
+                    <div class="auth_title">Вход</div>
+                    <form action="/auth/login" method="POST">
+                        <div class="email">
+                            <input style="text-align: center;" class="mail" type="text" id="username" name="username" placeholder="Email" required autofocus>
+                            <!-- <input style="text-align: center;" class="mail" type="text" placeholder="Email " name="email" required>-->
+                        </div>
+                        <div class="pass">
+                            <input style="text-align: center;" class="pasword" type="password" id="password" name="password" placeholder="Пароль" required>
+                            <!-- <input style="text-align: center;" class="pasword" id="passwords-input" type="password" placeholder="Пароль" name="password" required> -->
+                            <a href="#" class="password-control" onclick="return show_hide_passwords(this);">
+                            </a>
+
+
+
+                        </div>
+                        <button type="submit" class="auth_btn"> 
+                            <!-- fixme не выводит в пароле список ограничений-->
+                            <p>Войти</p>
+                        </button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
