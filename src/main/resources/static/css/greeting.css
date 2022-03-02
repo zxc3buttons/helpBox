@@ -448,9 +448,9 @@
         display: inline-block;
         width: 15px;
         height: 15px;
-        background: url(/static/images/eyeclose.svg) 0 0 no-repeat;
+        background: url(/images/eyeclose.svg) 0 0 no-repeat;
     }
     .password-control.view {
-        background: url(/static/images/eyeopen.svg) 0 0 no-repeat;
+        background: url(/images/eyeopen.svg) 0 0 no-repeat;
     }
 }
