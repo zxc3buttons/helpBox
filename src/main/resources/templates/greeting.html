@@ -1,56 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width">
-    <title>Органайзер3000</title>
+    <title>HelpBox</title>
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href = "/static/css/greeting.css">
+    <link rel="stylesheet" href="css/main.css">
     <!-- REG JS -->
-    <script src="/static/js/reg.js"></script>
+    <script src="js/reg.js"></script>
+    <script src="js/pas.js"></script>
+    <script src="js/email.js"></script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="container">
+    <div class="conteiner">
         <div class="reg">
-            <a href="#popup">
+            <a href="/registration">
                 <p style="text-align: center;">регистрация</p>
             </a>
         </div>
-        <div id="popup" class="popup">
-            <div class="popup_body">
-                <div class="popup_content">
-                    <a href="#collapse navbar-collapse" class="popup_close"><img src="\static\images\close.png" width=15px; higth=15px; alt="X"></a>
-                    <div class="popup_title">Регистрация</div>
-                    <form th:action="@{/registration}" th:method="POST" th:object="${user}">
-                        <div class="email">
-                            <input class="mail" type="text" placeholder="Email " th:field = "*{email}" name="email" required>
-                        </div>
-                        <div class="pass">
-
-                            <input class="pasword" id="password-input" type="password" placeholder="Пароль" th:field = "*{password}" name="pasword" required>
-                            <a href="#" class="password-control" onclick="return show_hide_password(this);">
-                            </a>
-
-
-
-                        </div>
-                        <div class="names">
-                            <input class="name" type="text" placeholder="Имя" th:field = "*{firstName}" name="firstName" required>
-                        </div>
-                        <div class="surnames">
-                            <input class="surname" type="text" placeholder="Фамилия" th:field = "*{lastName}" name="lastName" required>
-                        </div>
-                        <button type="submit" class="popup_btn">
-                            <p>Отправить заявку</p>
-                        </button>
-                    </form>
-                </div>
-            </div>
+        <div>
+            <a href="/auth/login">
+                <p style="text-align: center;">вход</p>
+            </a>
         </div>
+        <img style="margin-left: 40%;" src="https://c.tenor.com/NF6ixwAmrTMAAAAd/cristiano-ronaldo-drinking.gif" alt="я джифка">
+    </div>
     </div>
 
 </body>

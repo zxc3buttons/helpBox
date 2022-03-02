@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>HelpBox</title>
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="/static/css/reg.css">
+    <!-- REG JS -->
+    <script src="/static/js/reg.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="reg">
+            <div class="reg_body">
+                <div class="reg_content">
+                    <a href="greeting.html" class="reg_close"><img src="\static\images\close.png" width=15px; higth=15px; alt="X"></a>
+                    <div class="reg_title">Регистрация</div>
+                    <form th:action="@{/registration}" th:method="POST" th:object = "${user}">
+                        <div class="email">
+                            <input pattern="^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$" th:field = "*{email}" style="text-align: center;" class="mail" type="text" placeholder="Email " name="email" required>
+                        </div>
+                        <div class="pass">
+
+                            <input style="text-align: center;" class="pasword" id="password-input" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" th:field = "*{password}" type="password" placeholder="Пароль" name="pasword" required>
+                            <a href="#" class="password-control" onclick="return show_hide_password(this);">
+                            </a>
+
+
+
+                        </div>
+                        <div class="names">
+                            <input style="text-align: center;" class="name" th:field = "*{firstName}" type="text" placeholder="Имя" name="name" required>
+                        </div>
+                        <div class="surnames">
+                            <input style="text-align: center;" class="surname" th:field = "*{lastName}" type="text" placeholder="Фамилия" name="surname" required>
+                        </div>
+                        <button type="submit" class="reg_btn">
+                            <p>Зарегистрироваться</p>
+                        </button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
