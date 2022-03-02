@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <title>Органайзер3000</title>
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href = "/static/css/main.css">
+    <!-- REG JS -->
+    <script src="/static/js/reg.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="reg">
+            <a href="#popup">
+                <p style="text-align: center;">регистрация</p>
+            </a>
+        </div>
+        <div id="popup" class="popup">
+            <div class="popup_body">
+                <div class="popup_content">
+                    <a href="#collapse navbar-collapse" class="popup_close"><img src="\static\images\close.png" width=15px; higth=15px; alt="X"></a>
+                    <div class="popup_title">Регистрация</div>
+                    <form action="" method="post">
+                        <div class="email">
+                            <input class="mail" type="text" placeholder="Email " name="email" required>
+                        </div>
+                        <div class="pass">
+
+                            <input class="pasword" id="password-input" type="password" placeholder="Пароль" name="pasword" required>
+                            <a href="#" class="password-control" onclick="return show_hide_password(this);">
+                            </a>
+
+
+
+                        </div>
+                        <div class="names">
+                            <input class="name" type="text" placeholder="Имя" name="name" required>
+                        </div>
+                        <div class="surnames">
+                            <input class="surname" type="text" placeholder="Фамилия" name="surname" required>
+                        </div>
+                        <button type="submit" class="popup_btn">
+                            <p>Отправить заявку</p>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
