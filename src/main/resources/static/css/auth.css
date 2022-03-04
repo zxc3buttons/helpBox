@@ -118,11 +118,11 @@
     display: inline-block;
     width: 25px;
     height: 25px;
-    background: url(/images/eyeclose.svg) 0 0 no-repeat;
+    background: url(../images/eyeclose.svg) 0 0 no-repeat;
 }
 
 .password-control.view {
-    background: url(/images/eyeopen.svg) 0 0 no-repeat;
+    background: url(../images/eyeopen.svg) 0 0 no-repeat;
 }
 
 .pasword p {

@@ -18,21 +18,16 @@
         <div class="auth">
             <div class="auth_body">
                 <div class="auth_content">
-                    <a href="greeting.html" class="auth_close"><img src="\static\images\close.png" width=15px; higth=15px; alt="X"></a>
+                    <a href="/" class="auth_close"><img src="\static\images\close.png" width=15px; higth=15px; alt="X"></a>
                     <div class="auth_title">Вход</div>
                     <form action="/auth/login" method="POST">
                         <div class="email">
                             <input style="text-align: center;" class="mail" type="text" id="username" name="username" placeholder="Email" required autofocus>
-                            <!-- <input style="text-align: center;" class="mail" type="text" placeholder="Email " name="email" required>-->
                         </div>
                         <div class="pass">
-                            <input style="text-align: center;" class="pasword" type="password" id="password" name="password" placeholder="Пароль" required>
-                            <!-- <input style="text-align: center;" class="pasword" id="passwords-input" type="password" placeholder="Пароль" name="password" required> -->
+                            <input style="text-align: center;" class="pasword" type="password" id="passwords-input" name="password" placeholder="Пароль" required>
                             <a href="#" class="password-control" onclick="return show_hide_passwords(this);">
                             </a>
-
-
-
                         </div>
                         <button type="submit" class="auth_btn"> 
                             <!-- fixme не выводит в пароле список ограничений-->
