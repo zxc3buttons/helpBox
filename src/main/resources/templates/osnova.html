@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -40,7 +40,31 @@
             <p><a href="#">Регистрация</a></p>
         </div>
 
+        <div>
+            <form action = "/auth/main" method = "POST">
+                <input type = "text" name = "title" placeholder = "Введите название заметки" required />
+                <input type = "text" name = "text" placeholder = "Введите содержимое заметки" required />
+                <button type = "submit">Добавить</button>
+            </form>
+        </div>
 
+        <h3>Заметки</h3>
+        <div th:each = "note : ${notes}">
+            <span th:text = "${note.getTitle()}" />
+            <span th:text = "${note.getText()}" />
+            <span th:text = "${#dates.format(note.getDate(), 'dd-MM-yyyy HH:mm')}" />
+            <div>
+                <form th:action = "@{/auth/{id}(id = ${note.getId()})}" th:method = "DELETE">
+                    <button type="submit">Удалить</button>
+                </form>
+                <form th:method = "PATCH" th:action = "@{/auth/{id}(id = ${note.getId()})}">
+                    <input type = "text" name = "title" placeholder = "Введите название заметки" required />
+                    <input type = "text" name = "text" placeholder = "Введите содержимое заметки" required />
+                    <button type = "submit">Обновить</button>
+                </form>
+            </div>
+            <br/>
+        </div>
 
     </header>
     <div class="content">
