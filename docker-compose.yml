@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: 'postgres:9.5'
+    container_name: 'java-postgres'
+    environment:
+      - 'POSTGRES_USER=drealpsqevnttj'
+      - 'POSTGRES_HOST_AUTH_METHOD=trust'
+      - 'POSTGRES_DB=degggugm06pi86'
+
+
+  app:
+    build: ./
+    ports:
+      - "8080:8080"
