@@ -71,6 +71,11 @@
             <artifactId>javaee-web-api</artifactId>
             <version>8.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>31.1-jre</version>
+        </dependency>
     </dependencies>
 
     <build>

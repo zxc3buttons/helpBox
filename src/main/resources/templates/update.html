@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HelpBox</title>
+    <link rel="stylesheet" href="/static/css/osnova.css">
+    <link rel="preload" href="/static/fonts/PTSansNarrow-Bold.ttf" as="font">
+    <link rel="preload" href="/static/fonts/PTSansNarrow-Regular.ttf" as="font">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <script src="/static/js/note.js"></script>
+</head>
+
+<body>
+
+<header class="container">
+    <div class="f_menu">
+        <h1 th:text = "${user.getFirstName()} + ' ' + ${user.getLastName()}"></h1>
+    </div>
+    <div class="logo_text">
+        <h1>HELPBOX</h1>
+    </div>
+    <div class="sec-menu">
+        <img src="/static/images/menus.svg" alt="" width="17%" height="17%" class="svg_burger_menu">
+    </div>
+</header>
+
+<div class="content">
+    <div class="calendar_cont">
+        <div class="calendar">
+        </div>
+    </div>
+
+    <div class="vidjet_cont">
+        <div id = "open_write" class="vidjet_write">
+            <div class="vidjet_header_write">
+                <div class="f_header_write">
+                    <a class="arrow_btn" href = "/auth/main/"><img class = "arrow_svg" src="/static/images/arrow.svg"></a>
+                </div>
+                <div class="s_header_write">
+                    <p>ЗАМЕТКИ</p>
+                </div>
+                <div class="t_header_write">
+                    <button form = "add_s" class="check_btn"><img src="/static/images/check.svg"></button>
+                </div>
+            </div>
+            <div class="vidjet_note">
+                <form th:method = "PUT" th:action = "@{/auth/{id}(id = ${note.getId()})}" th:object = "${note}" id = "add_s">
+                    <div class="vidjet_note_title">
+                        <textarea class="note_title" type="text" th:field = "*{title}" placeholder="Введите название заметок" />
+                    </div>
+                    <div class="note_txt">
+                        <p style="margin-left: 40px;" th:text = "${#dates.format(note.getDate(), 'dd-MM-yyyy')}">Date</p>
+                    </div>
+                    <div class="write">
+                        <textarea class="note_txt_name" type="text" th:field = "*{text}" placeholder="Текст новой заметки" style="width: 401px; height: 500px; margin-left: 40px; resize: none; border: none; outline:none"></textarea>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

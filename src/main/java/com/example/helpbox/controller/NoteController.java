@@ -4,6 +4,7 @@ import com.example.helpbox.model.Note;
 import com.example.helpbox.model.User;
 import com.example.helpbox.repository.NoteRepository;
 import com.example.helpbox.repository.UserRepository;
+import com.google.common.collect.Iterables;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -13,8 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
-import java.util.Optional;
+import java.util.*;
 
 
 @Controller
@@ -38,10 +38,47 @@ public class NoteController {
         return user;
     }
 
-    @GetMapping("/main")
+    @GetMapping("/main/")
     public String getMainPage(Model model) {
         Iterable <Note> notes = noteRepository.findByAuthor(getCurrentUser());
         model.addAttribute("notes", notes);
+        model.addAttribute("user", getCurrentUser());
+        return "osnova";
+    }
+
+    @GetMapping("/main/{id}")
+    public String editNote (@PathVariable("id") Long id, Model model) {
+        Note note = noteRepository.findById(id).orElseThrow();
+        model.addAttribute("note", note);
+        model.addAttribute("user", getCurrentUser());
+        return "update";
+    }
+
+    @GetMapping("/main/find")
+    public String getFindPage(Model model) {
+        Iterable <Note> notes = noteRepository.findByAuthor(getCurrentUser());
+        model.addAttribute("notes", notes);
+        model.addAttribute("user", getCurrentUser());
+        return "osnova";
+    }
+
+    @PostMapping("/main/find")
+    public String findNote(@RequestParam String title, Model model) {
+        Iterable <Note> notes = noteRepository.findByAuthor(getCurrentUser());
+        List <Note> result = new ArrayList<>();
+        if (title.equals("")) {
+            return "redirect:/auth/main/";
+        }
+        else {
+            for (Note note : notes) {
+                if (note.getTitle().toLowerCase().contains(title.toLowerCase())) {
+                    result.add(note);
+                }
+            }
+        }
+        if (Iterables.isEmpty(notes)) model.addAttribute("exception", "По Вашему запросу ничего не найдено");
+        model.addAttribute("notes", result);
+        model.addAttribute(getCurrentUser());
         return "osnova";
     }
 
@@ -52,24 +89,24 @@ public class NoteController {
         noteRepository.save(note);
         Iterable <Note> notes = noteRepository.findByAuthor(currentUser);
         model.addAttribute("notes", notes);
-        return "osnova";
+        return "redirect:/auth/main/";
     }
 
-    @PatchMapping("/{id}")
-    public String updateNote (@PathVariable("id") Long id, @RequestParam String title, @RequestParam String text, Model model) {
+    @PutMapping("/{id}")
+    public String updateNote (@PathVariable("id") Long id, @RequestParam(required = false) String title, @RequestParam String text) {
         Optional <Note> optionalNote = noteRepository.findById(id);
-        Note note = optionalNote.get();
+        Note note = optionalNote.orElseThrow();
         note.setTitle(title);
         note.setText(text);
         note.setDate(new Date());
         noteRepository.save(note);
-        return "redirect:/auth/main";
+        return "redirect:/auth/main/";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") Long id) {
         noteRepository.deleteById(id);
-        return "redirect:/auth/main";
+        return "redirect:/auth/main/";
     }
 
 }
