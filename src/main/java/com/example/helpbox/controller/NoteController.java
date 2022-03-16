@@ -76,7 +76,7 @@ public class NoteController {
                 }
             }
         }
-        if (Iterables.isEmpty(notes)) model.addAttribute("exception", "По Вашему запросу ничего не найдено");
+        if (result.isEmpty()) model.addAttribute("exception", "По Вашему запросу ничего не найдено");
         model.addAttribute("notes", result);
         model.addAttribute(getCurrentUser());
         return "osnova";
