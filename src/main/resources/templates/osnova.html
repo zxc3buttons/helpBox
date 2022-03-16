@@ -1,78 +1,93 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpBox</title>
-    <link rel="stylesheet" href="css/osnova.css">
+    <link rel="stylesheet" href="/static/css/osnova.css">
+    <link rel="preload" href="/static/fonts/PTSansNarrow-Bold.ttf" as="font">
+    <link rel="preload" href="/static/fonts/PTSansNarrow-Regular.ttf" as="font">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <script src="/static/js/note.js"></script>
 </head>
 
 <body>
-    <header>
-
-        // разметка для логотипа
-
-        <div class="logo">
-            <a href="index.html">
-                <span class="use">USE</span>-<span class="web">WEB</span>.ru
-            </a>
-            <p>Разработка- это просто</p>
+    <header class="container">
+        <div class="f_menu">
+            <h1 th:text = "${user.getFirstName()} + ' ' + ${user.getLastName()}"></h1>
         </div>
-
-        // разметка для нашего меню
-
-        <div class="top-menu">
-            <ul>
-                <li><a class="clickMenu" href="#">-</a></li>
-                <li><a href="#">Профиль</a></li>
-                <li><a href="#">Доска</a></li>
-                <li><a href="#">виджеты</a></li>
-
-            </ul>
+        <div class="logo_text">
+            <h1>HELPBOX</h1>
         </div>
-
-        // блок с авторизацией
-
-        <div class="block-top-auth">
-            <p><a href="#">Вход</a></p>
-            <p><a href="#">Регистрация</a></p>
-        </div>
-
-        <div>
-            <form action = "/auth/main" method = "POST">
-                <input type = "text" name = "title" placeholder = "Введите название заметки" required />
-                <input type = "text" name = "text" placeholder = "Введите содержимое заметки" required />
-                <button type = "submit">Добавить</button>
-            </form>
-        </div>
-
-        <h3>Заметки</h3>
-        <div th:each = "note : ${notes}">
-            <span th:text = "${note.getTitle()}" />
-            <span th:text = "${note.getText()}" />
-            <span th:text = "${#dates.format(note.getDate(), 'dd-MM-yyyy HH:mm')}" />
-            <div>
-                <form th:action = "@{/auth/{id}(id = ${note.getId()})}" th:method = "DELETE">
-                    <button type="submit">Удалить</button>
-                </form>
-                <form th:method = "PATCH" th:action = "@{/auth/{id}(id = ${note.getId()})}">
-                    <input type = "text" name = "title" placeholder = "Введите название заметки" required />
-                    <input type = "text" name = "text" placeholder = "Введите содержимое заметки" required />
-                    <button type = "submit">Обновить</button>
-                </form>
-            </div>
-            <br/>
+        <div class="sec-menu">
+            <img src="/static/images/menus.svg" alt="" width="17%" height="17%" class="svg_burger_menu">
         </div>
 
     </header>
     <div class="content">
-        <div class="calendar"></div>
-        <div class="vidjet"></div>
-    </div>
-    <img style="margin-left: 40%;" src="https://c.tenor.com/yIWsA_YgyiMAAAAd/sarhosternal-ronaldo.gif" alt="я джифка">
-    <h1 style="text-align: center;">Когда зашёл на HelpBox</h1>
-</body>
+        <div class="calendar_cont">
+            <div class="calendar">
+            </div>
+        </div>
 
+        <div class="vidjet_cont">
+            <div id = "open_write" class="vidjet_write" hidden>
+                <div class="vidjet_header_write">
+                    <div class="f_header_write">
+                        <button id = "ArrowButton" class="arrow_btn" onclick="return show_hide_write(this);"><img src="/static/images/arrow.svg"></button>
+                    </div>
+                    <div class="s_header_write">
+                        <p>ЗАМЕТКИ</p>
+                    </div>
+                    <div class="t_header_write">
+                        <button form = "add" class="check_btn"><img src="/static/images/check.svg"></button>
+                    </div>
+                </div>
+                <div class="vidjet_note">
+                    <form action="/auth/main/" method="POST" id = "add">
+                        <div class="vidjet_note_title">
+                            <input class="note_title" type="text" name="title" placeholder="Введите название заметок" required/>
+                        </div>
+                        <div class="note_txt">
+                            <p style="margin-left: 35px;">23.02.22</p>
+                        </div>
+                        <div class="write">
+                            <textarea class="note_txt_name" type="text" name="text" placeholder="Текст новой заметки" style="width: 401px; height: 500px; margin-left: 40px; resize: none; border: none; outline:none" required></textarea>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div id = "close_write" class="vidjet">
+                <div class="vidjet_header">
+                    <p>ЗАМЕТКИ</p>
+                </div>
+                <div class="vidjet_notes" id="scrollbar">
+
+                    <form action = "/auth/main/find" class="vidjet_note_search" method = "POST">
+                        <input class="note_search" type="text" name="title" placeholder="Поиск заметок" />
+                        <button class="poisk" type = "submit"><img src="/static/images/lupa.svg" class="svg_lupa"></button>
+                    </form>
+
+                    <div class="note" th:each = "note : ${notes}">
+                        <a class="f_note" th:href = "@{/auth/main/{id}(id = ${note.getId()})}">
+                            <p class = "note_txt_name" th:text = "${note.getTitle()}" />
+                            <p class = "note_txt" th:text = "${#dates.format(note.getDate(), 'dd-MM-yyyy')}" />
+                        </a>
+                        <form th:method = "DELETE" th:action = "@{/auth/{id}(id = ${note.getId()})}" class="s_note">
+                            <button class="delete" type="submit"><img src="/static/images/bucket.svg" class="svg_bucket"></button>
+                        </form>
+                    </div>
+                    <!--Если заметка не была найдена-->
+                    <p style = "text-align: center" class = "note_txt_name" th:if = "${exception != null}" th:text = "${exception}" />
+                </div>
+                <button class="vidjet_add" id="okButton" onclick="return show_hide_note(this);">
+                    <p>НОВАЯ ЗАМЕТКА</p>
+                </button>
+            </div>
+        </div>
+    </body>
 </html>

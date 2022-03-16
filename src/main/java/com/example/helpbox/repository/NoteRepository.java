@@ -8,4 +8,5 @@ import java.util.Optional;
 
 public interface NoteRepository extends CrudRepository <Note, Long> {
     public Iterable <Note> findByAuthor(User user);
+    public Iterable <Note> findByTitle(String title);
 }
