@@ -47,7 +47,6 @@ public class RegistrationController {
             return "reg";
         }
 
-        //user.setEmail();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setStatus(Status.ACTIVE);
         user.setRole(Role.USER);
