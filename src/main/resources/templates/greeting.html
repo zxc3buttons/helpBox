@@ -7,30 +7,166 @@
     <meta name="viewport" content="width=device-width">
     <title>HelpBox</title>
     <!-- MAIN CSS -->
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/static/css/greeting.css">
     <!-- REG JS -->
-    <script src="js/reg.js"></script>
-    <script src="js/pas.js"></script>
-    <script src="js/email.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="preload" href="/static/fonts/PTSansNarrow-Bold.ttf" as="font">
+    <link rel="preload" href="/static/fonts/PTSansNarrow-Regular.ttf" as="font">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&family=Roboto&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
-    <div class="conteiner">
-        <div class="reg">
-            <a href="/registration">
-                <p style="text-align: center;">регистрация</p>
-            </a>
+    <header class="container">
+        <div class="f_menu">
         </div>
-        <div>
-            <a href="/auth/login">
-                <p style="text-align: center;">вход</p>
-            </a>
+        <div class="logo_text">
+            <h1>HELPBOX</h1>
         </div>
-        <img style="margin-left: 40%;" src="https://c.tenor.com/NF6ixwAmrTMAAAAd/cristiano-ronaldo-drinking.gif" alt="я джифка">
-    </div>
-    </div>
+        <div class="sec-menu">
+            <ul class="list_m">
+                <li><a href="/registration">РЕГИСТРАЦИЯ</a></li>
+                <li><a href="/auth/login">ВХОД</a></li>
+            </ul>
+        </div>
 
+    </header>
+    <div class="main">
+        <div class="greet">
+            <div class="greet_words">
+                <h1>Ваши возможности - наша цель!</h1>
+                <p>Сохрани своё время , составь списки задач в органайзере Helpbox</p>
+
+            </div>
+            <div class="img_greet"></div>
+
+        </div>
+
+        <div class="privilege">
+            <h1>Почему стоит выбрать именно нас</h1>
+            <table class="tab_priv">
+                <tr>
+                    <th style="width: 340px;"><img src="../static/images/handshake.svg" alt="" width="50%" height="50%"></th>
+                    <th style="width: 350px;"><img src="../static/images/sand-clock-timer.svg" alt="" width="50%" height="50%"></th>
+                    <th style="width: 340px;"><img src="../static/images/heart.svg" alt="" width="50%" height="50%"></th>
+                </tr>
+                <tr>
+                    <td style="width: 340px;">
+                        <h2 class="normal">Удобство</h2>
+                    </td>
+                    <td style="width: 350px;">
+                        <h2 class="normal">Экономия времени</h2>
+                    </td>
+                    <td style="width: 340px;">
+                        <h2 class="normal">Уверенность</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 340px;">
+                        <p class="normal">Вы с легкостью сможете использовать несколько виджетов для вашей работы</p>
+
+                    </td>
+                    <td style="width: 350px;">
+                        <p class="normal">Больше нет необходимости переключаться среди тысячи вкладок - всё есть у нас</p>
+                    </td>
+                    <td style="width: 340px;">
+                        <p class="normal">​​​​​​​Органайзер позволит вам сохранить свои нервы и навести порядок в повседневной жизни</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="work">
+            <h1>Команда Helpbox</h1>
+            <table class="tab_work">
+                <tr>
+                    <th style="width: 258px;">
+                        <img src="/static/images/nurdin.jpg" alt="" width="85%" height="85%"></th>
+                    <th style="width: 257px; "><img src="/static/images/Lev.jpg " alt="" width="85%" height="85%"></th>
+                    <th style="width: 257px; "><img src="/static/images/Alex.jpg " alt="" width="85%" height="85%"></th>
+                    <th style="width: 258px; "><img src="/static/images/ilia.jpg " alt="" width="85%" height="85%"></th>
+                </tr>
+                <tr>
+                    <td style="width: 258px; ">
+                        <h2 class="normal ">Ужахов Н.Л.</h2>
+                    </td>
+                    <td style="width: 257px; ">
+                        <h2 class="normal ">Прядильников Л.Е.</h2>
+                    </td>
+                    <td style="width: 257px; ">
+                        <h2 class="normal ">Садиков А.Д.</h2>
+                    </td>
+                    <td style="width: 258px; ">
+                        <h2 class="normal ">Рудкин И.С.</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 258px; ">
+                        <p class="normal ">front-end & media группа</p>
+
+                    </td>
+                    <td style="width: 257px; ">
+                        <p class="normal ">product owner & front-end группа</p>
+                    </td>
+                    <td style="width: 257px; ">
+                        <p class="normal ">scrum master & media группа</p>
+                    </td>
+                    <td style="width: 258px; ">
+                        <p class="normal ">media & front-end группа</p>
+                    </td>
+                </tr>
+            </table>
+            <table class="tab_work">
+                <tr>
+                    <th style="width: 258px;">
+                        <img src="/static/images/aidar.jpg" alt="" width="85%" height="85%"></th>
+                    <th style="width: 257px; "><img src="/static/images/arina.jpg " alt="" width="85%" height="85%"></th>
+                    <th style="width: 257px; "><img src="/static/images/Oleg.jpg" alt="" width="85%" height="85%"></th>
+
+                </tr>
+                <tr>
+                    <td style="width: 258px; ">
+                        <h2 class="normal ">Халилов А.Р.</h2>
+                    </td>
+                    <td style="width: 257px; ">
+                        <h2 class="normal ">Рыжило А.В.</h2>
+                    </td>
+                    <td style="width: 257px; ">
+                        <h2 class="normal ">Токарев О.И.</h2>
+                    </td>
+
+                </tr>
+                <tr>
+                    <td style="width: 258px; ">
+                        <p class="normal ">back-end группа</p>
+
+                    </td>
+                    <td style="width: 257px; ">
+                        <p class="normal ">design & front-end группа​​​​​​​</p>
+                    </td>
+                    <td style="width: 257px; ">
+                        <p class="normal ">back-end группа</p>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    <footer>
+        <div class="container_foot ">
+            <div class="logo_text_foot ">
+                <p>HELPBOX</p>
+            </div>
+            <div class="s_foot "></div>
+            <div class="contact ">
+                <ul class="contact_list ">
+                    <li>КОНТАКТЫ:</li>
+                    <li>HelpBox@mail.ru</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

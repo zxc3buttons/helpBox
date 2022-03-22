@@ -1,10 +1,13 @@
 package com.example.helpbox.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
+@Getter
+@Setter
 @Data
 @Entity
 @SequenceGenerator(name = "seq", sequenceName = "users_seq", initialValue = 1, allocationSize = 1)

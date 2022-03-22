@@ -1,0 +1,11 @@
+<svg width="35" height="43" viewBox="0 0 35 43" fill="none" xmlns="http://www.w3.org/2000/svg">
+<line x1="1.5" y1="-1.5" x2="27.9667" y2="-1.5" transform="matrix(0.264429 0.964405 -0.982147 0.188118 0 14.4286)" stroke="#C4C4C4" stroke-width="3" stroke-linecap="round"/>
+<line x1="1.5" y1="-1.5" x2="27.9667" y2="-1.5" transform="matrix(-0.264429 0.964405 0.982147 0.188118 35 14.4286)" stroke="#C4C4C4" stroke-width="3" stroke-linecap="round"/>
+<line x1="9.17407" y1="41.5" x2="25.7081" y2="41.5" stroke="#C4C4C4" stroke-width="3" stroke-linecap="round"/>
+<line x1="1.5" y1="13.6429" x2="33.3822" y2="13.6429" stroke="#C4C4C4" stroke-width="3" stroke-linecap="round"/>
+<path d="M24.5 21.4896L21.3889 33.6325" stroke="#C4C4C4" stroke-linecap="round"/>
+<path d="M10.5 21.5714L13.6111 33.7143" stroke="#C4C4C4" stroke-linecap="round"/>
+<path d="M17.5 20.8571V33.7143" stroke="#C4C4C4" stroke-linecap="round"/>
+<line x1="1.5" y1="-1.5" x2="32.663" y2="-1.5" transform="matrix(0.9562 0.292714 -0.341184 0.939997 1.55542 3)" stroke="#C4C4C4" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="19.8331" cy="5.50001" rx="1.94444" ry="1.78571" fill="#C4C4C4"/>
+</svg>

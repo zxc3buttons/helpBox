@@ -236,3 +236,8 @@
     color: #FFFFFF;
     transform: rotate(0.5deg);
 }
+
+.exception {
+    font-family: 'JetBrains Mono';
+    color: red;
+}
