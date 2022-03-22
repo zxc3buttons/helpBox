@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 import java.util.Optional;
 
-@Controller
+/*@Controller
 @RequestMapping("/auth")
 public class AuthController {
 
-    @GetMapping("/login")
+    @GetMapping("/")
     public String getLoginPage(Model model) {
         return "login";
     }
 
-}
+}*/

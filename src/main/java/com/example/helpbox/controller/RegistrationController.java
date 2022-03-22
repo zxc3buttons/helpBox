@@ -16,7 +16,7 @@ import javax.validation.Valid;
 
 import java.util.Optional;
 
-@Controller
+/*@Controller
 public class RegistrationController {
 
     private final UserRepository userRepository;
@@ -52,6 +52,6 @@ public class RegistrationController {
         user.setRole(Role.USER);
         userRepository.save(user);
 
-        return "redirect:/auth/login";
+        return "redirect:/auth";
     }
-}
+}*/

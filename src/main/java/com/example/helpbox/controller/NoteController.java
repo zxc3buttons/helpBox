@@ -4,7 +4,6 @@ import com.example.helpbox.model.Note;
 import com.example.helpbox.model.User;
 import com.example.helpbox.repository.NoteRepository;
 import com.example.helpbox.repository.UserRepository;
-import com.google.common.collect.Iterables;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,7 +17,7 @@ import java.util.*;
 
 
 @Controller
-@RequestMapping("/auth")
+@RequestMapping("/main")
 public class NoteController {
     private final NoteRepository noteRepository;
     private final UserRepository userRepository;
@@ -38,7 +37,7 @@ public class NoteController {
         return user;
     }
 
-    @GetMapping("/main/")
+    @GetMapping("/")
     public String getMainPage(Model model) {
         Iterable <Note> notes = noteRepository.findByAuthor(getCurrentUser());
         model.addAttribute("notes", notes);
@@ -46,7 +45,7 @@ public class NoteController {
         return "osnova";
     }
 
-    @GetMapping("/main/{id}")
+    @GetMapping("/{id}")
     public String editNote (@PathVariable("id") Long id, Model model) {
         Note note = noteRepository.findById(id).orElseThrow();
         model.addAttribute("note", note);
@@ -54,7 +53,7 @@ public class NoteController {
         return "update";
     }
 
-    @GetMapping("/main/find")
+    @GetMapping("/find")
     public String getFindPage(Model model) {
         Iterable <Note> notes = noteRepository.findByAuthor(getCurrentUser());
         model.addAttribute("notes", notes);
@@ -62,12 +61,12 @@ public class NoteController {
         return "osnova";
     }
 
-    @PostMapping("/main/find")
+    @PostMapping("/find")
     public String findNote(@RequestParam String title, Model model) {
         Iterable <Note> notes = noteRepository.findByAuthor(getCurrentUser());
         List <Note> result = new ArrayList<>();
         if (title.equals("")) {
-            return "redirect:/auth/main/";
+            return "redirect:/main";
         }
         else {
             for (Note note : notes) {
@@ -82,14 +81,14 @@ public class NoteController {
         return "osnova";
     }
 
-    @PostMapping("/main")
+    @PostMapping("/")
     public String addNote(@RequestParam String title, @RequestParam String text, Model model) {
         User currentUser = getCurrentUser();
         Note note = new Note(text, title, currentUser);
         noteRepository.save(note);
         Iterable <Note> notes = noteRepository.findByAuthor(currentUser);
         model.addAttribute("notes", notes);
-        return "redirect:/auth/main/";
+        return "redirect:/main";
     }
 
     @PutMapping("/{id}")
@@ -100,13 +99,13 @@ public class NoteController {
         note.setText(text);
         note.setDate(new Date());
         noteRepository.save(note);
-        return "redirect:/auth/main/";
+        return "redirect:/main";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") Long id) {
         noteRepository.deleteById(id);
-        return "redirect:/auth/main/";
+        return "redirect:/main";
     }
 
 }

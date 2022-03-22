@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="vidjet_note">
-                    <form action="/auth/main/" method="POST" id = "add">
+                    <form action="/main/" method="POST" id = "add">
                         <div class="vidjet_note_title">
                             <input class="note_title" type="text" name="title" placeholder="Введите название заметок" required/>
                         </div>
@@ -67,17 +67,17 @@
                 </div>
                 <div class="vidjet_notes" id="scrollbar">
 
-                    <form action = "/auth/main/find" class="vidjet_note_search" method = "POST">
+                    <form action = "/main/find" class="vidjet_note_search" method = "POST">
                         <input class="note_search" type="text" name="title" placeholder="Поиск заметок" />
                         <button class="poisk" type = "submit"><img src="/static/images/lupa.svg" class="svg_lupa"></button>
                     </form>
 
                     <div class="note" th:each = "note : ${notes}">
-                        <a class="f_note" th:href = "@{/auth/main/{id}(id = ${note.getId()})}">
+                        <a class="f_note" th:href = "@{/main/{id}(id = ${note.getId()})}">
                             <p class = "note_txt_name" th:text = "${note.getTitle()}" />
                             <p class = "note_txt" th:text = "${#dates.format(note.getDate(), 'dd-MM-yyyy')}" />
                         </a>
-                        <form th:method = "DELETE" th:action = "@{/auth/{id}(id = ${note.getId()})}" class="s_note">
+                        <form th:method = "DELETE" th:action = "@{/{id}(id = ${note.getId()})}" class="s_note">
                             <button class="delete" type="submit"><img src="/static/images/bucket.svg" class="svg_bucket"></button>
                         </form>
                     </div>
