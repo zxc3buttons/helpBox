@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="/static/css/osnova.css">
     <link rel="preload" href="/static/fonts/PTSansNarrow-Bold.ttf" as="font">
     <link rel="preload" href="/static/fonts/PTSansNarrow-Regular.ttf" as="font">
+    <link rel="icon" href="/static/images/newicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/calendar.css">
     <script src="/static/js/note.js"></script>
 </head>
 
@@ -29,11 +31,38 @@
 
     </header>
     <div class="content">
-        <div class="calendar_cont">
+        <div class="light">
             <div class="calendar">
+                <div class="calendar-header">
+                    <span class="month-picker" id="month-picker" style="color:#7635FF"></span>
+                    <div class="year-picker" style="color:#7635FF">
+                        <span class="year-change" id="prev-year">
+                        <pre style="color:#7635FF"><</pre>
+                    </span>
+                        <span id="year"></span>
+                        <span class="year-change" id="next-year">
+                        <pre style="color:#7635FF">></pre>
+                    </span>
+                    </div>
+                </div>
+                <div class="calendar-body">
+                    <div class="calendar-week-day">
+                        <div style="color:#E83232;">Вс</div>
+                        <div>Пн</div>
+                        <div>Вт</div>
+                        <div>Ср</div>
+                        <div>Чт</div>
+                        <div>Пт</div>
+                        <div>Сб</div>
+                    </div>
+                    <div class="calendar-days"></div>
+                </div>
+                <div class="calendar-footer">
+
+                </div>
+                <div class="month-list"></div>
             </div>
         </div>
-
         <div class="vidjet_cont">
             <div id = "open_write" class="vidjet_write" hidden>
                 <div class="vidjet_header_write">
@@ -89,5 +118,6 @@
                 </button>
             </div>
         </div>
+        <script src="/static/js/calendar.js"></script>
     </body>
 </html>

@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpBox</title>
     <link rel="stylesheet" href="/static/css/osnova.css">
+    <link rel="stylesheet" href="/static/css/calendar.css">
+    <link rel="icon" href="/static/images/newicon.ico" type="image/x-icon">
     <link rel="preload" href="/static/fonts/PTSansNarrow-Bold.ttf" as="font">
     <link rel="preload" href="/static/fonts/PTSansNarrow-Regular.ttf" as="font">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,11 +32,38 @@
 </header>
 
 <div class="content">
-    <div class="calendar_cont">
+    <div class="light">
         <div class="calendar">
+            <div class="calendar-header">
+                <span class="month-picker" id="month-picker" style="color:#7635FF"></span>
+                <div class="year-picker" style="color:#7635FF">
+                        <span class="year-change" id="prev-year">
+                        <pre style="color:#7635FF"><</pre>
+                    </span>
+                    <span id="year"></span>
+                    <span class="year-change" id="next-year">
+                        <pre style="color:#7635FF">></pre>
+                    </span>
+                </div>
+            </div>
+            <div class="calendar-body">
+                <div class="calendar-week-day">
+                    <div style="color:#E83232;">Вс</div>
+                    <div>Пн</div>
+                    <div>Вт</div>
+                    <div>Ср</div>
+                    <div>Чт</div>
+                    <div>Пт</div>
+                    <div>Сб</div>
+                </div>
+                <div class="calendar-days"></div>
+            </div>
+            <div class="calendar-footer">
+
+            </div>
+            <div class="month-list"></div>
         </div>
     </div>
-
     <div class="vidjet_cont">
         <div id = "open_write" class="vidjet_write">
             <div class="vidjet_header_write">
@@ -64,5 +93,6 @@
         </div>
     </div>
 </div>
+<script src="/static/js/calendar.js"></script>
 </body>
 </html>

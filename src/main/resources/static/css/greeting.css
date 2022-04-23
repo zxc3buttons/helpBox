@@ -23,13 +23,13 @@ body {
 
 header {
     width: 100%;
-    background: #5BFFD4;
+    background: #8B74FF;
     height: 70px;
 }
 
 footer {
     width: 100%;
-    background: #5BFFD4;
+    background: #8B74FF;
     height: 150px;
 }
 
@@ -134,10 +134,10 @@ ul.contact_list li {
 }
 
 .greet_words {
-    background-color: #cefff2;
+    background-color: #BDB0FF;
     height: 380px;
     box-sizing: border-box;
-    /* border: 2px solid #5BFFD4;ebebf6 */
+    /* border: 2px solid ##8B74FF;ebebf6 */
 }
 
 .greet_words h1 {
