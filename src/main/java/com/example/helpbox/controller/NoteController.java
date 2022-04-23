@@ -4,7 +4,6 @@ import com.example.helpbox.model.Note;
 import com.example.helpbox.model.User;
 import com.example.helpbox.repository.NoteRepository;
 import com.example.helpbox.repository.UserRepository;
-import com.google.common.collect.Iterables;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -38,7 +37,7 @@ public class NoteController {
         return user;
     }
 
-    @GetMapping("/main/")
+    @GetMapping("/main")
     public String getMainPage(Model model) {
         Iterable <Note> notes = noteRepository.findByAuthor(getCurrentUser());
         model.addAttribute("notes", notes);
@@ -65,7 +64,7 @@ public class NoteController {
     @PostMapping("/main/find")
     public String findNote(@RequestParam String title, Model model) {
         Iterable <Note> notes = noteRepository.findByAuthor(getCurrentUser());
-        List <Note> result = new ArrayList<>();
+        List<Note> result = new ArrayList<>();
         if (title.equals("")) {
             return "redirect:/auth/main/";
         }
@@ -94,7 +93,7 @@ public class NoteController {
 
     @PutMapping("/{id}")
     public String updateNote (@PathVariable("id") Long id, @RequestParam(required = false) String title, @RequestParam String text) {
-        Optional <Note> optionalNote = noteRepository.findById(id);
+        Optional<Note> optionalNote = noteRepository.findById(id);
         Note note = optionalNote.orElseThrow();
         note.setTitle(title);
         note.setText(text);

@@ -23,13 +23,13 @@ body {
 
 header {
     width: 100%;
-    background: #5BFFD4;
+    background: #8B74FF;
     height: 70px;
 }
 
 footer {
     width: 100%;
-    background: #5BFFD4;
+    background: #8B74FF;
     height: 150px;
 }
 
@@ -102,8 +102,6 @@ ul.contact_list li {
 
 .sec-menu {
     display: grid;
-    border: none;
-    background: none;
 }
 
 .svg_burger_menu {
@@ -127,18 +125,18 @@ ul.contact_list li {
 /* 1280 640 */
 
 .content {
+    background-color: #F5F5F5;
     display: grid;
     grid-template-columns: 1260px 643px;
 }
 
 .calendar_cont {
-    background-color: white;
+    background-color: #F5F5F5;
     height: 890px;
 }
 
 .calendar {
     width: 1001px;
-    background-color: yellow;
     height: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -148,7 +146,6 @@ ul.contact_list li {
 
 .vidjet_cont {
     width: 643px;
-    background-color: white;
     height: 890px;
     margin-left: auto;
 }
@@ -156,7 +153,7 @@ ul.contact_list li {
 .vidjet_write {
     width: 501px;
     background-color: white;
-    border: 5px solid #5BFFD4;
+    border: 5px solid #8B74FF;
     height: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -171,18 +168,17 @@ ul.contact_list li {
     outline: none;
     width: 301px;
     height: 35px;
-    margin-left: 40px;
+    margin-left: 90px;
     margin-top: 15px;
     border-radius: 15px;
-    border: 2px solid #5BFFD4;
+    border: 2px solid #8B74FF;
     font-size: 20px;
-    resize: none;
 }
 
 .vidjet {
     width: 501px;
     background-color: white;
-    border: 5px solid #5BFFD4;
+    border: 5px solid #8B74FF;
     height: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -190,35 +186,9 @@ ul.contact_list li {
     border-radius: 15px;
 }
 
-.vidjet_header_write {
-    height: 65px;
-    background-color: #5BFFD4;
-    display: grid;
-    grid-template-columns: 50px auto 50px;
-}
-
-.arrow_btn {
-    background: none;
-    border: none;
-    margin-top: 12px
-}
-
 .vidjet_header {
     height: 65px;
-    background-color: #5BFFD4;
-}
-
-.s_header_write {
-    font-family: 'PT Sans Narrow';
-    text-align: center;
-    font-weight: bold;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 36px;
-    line-height: 20px;
-    /* identical to box height, or 56% */
-    color: #FFFFFF;
-    margin-top: -12px
+    background-color: #8B74FF;
 }
 
 .vidjet_header p {
@@ -235,7 +205,31 @@ ul.contact_list li {
     padding: 20px;
 }
 
-.vidjet_note_search {}
+.vidjet_header_write {
+    height: 65px;
+    background-color: #8B74FF;
+    display: grid;
+    grid-template-columns: 50px auto 50px;
+}
+
+.arrow_btn {
+    background: none;
+    border: none;
+    margin-top: 12px
+}
+
+.s_header_write {
+    font-family: 'PT Sans Narrow';
+    text-align: center;
+    font-weight: bold;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 20px;
+    /* identical to box height, or 56% */
+    color: #FFFFFF;
+    margin-top: -12px
+}
 
 .check_btn {
     background: none;
@@ -254,11 +248,11 @@ ul.contact_list li {
     margin-left: 90px;
     margin-top: 15px;
     border-radius: 15px;
-    border-color: #5BFFD4;
-    border: 2px solid #5BFFD4;
+    border-color: #8B74FF;
 }
 
 .write {
+    overflow-y: scroll;
     overflow-x: hidden;
     white-space: nowrap;
 }
@@ -266,7 +260,7 @@ ul.contact_list li {
 .vidjet_note_write {}
 
 .vidjet_notes {
-    width: 501px;
+    width: 490px;
     height: 570px;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -281,37 +275,19 @@ ul.contact_list li {
 
 #scrollbar::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background: linear-gradient(white, #5BFFD4, white);
-    border: 2px solid #5BFFD4;
+    background: linear-gradient(white, #8B74FF, white);
+    border: 2px solid #8B74FF;
 }
 
 .note {
-    display: grid;
-    grid-template-columns: 301px 100px;
-    border: 3px solid #5BFFD4;
+    /* display: grid;
+    grid-template-columns: 301px 100px; */
+    border: 3px solid #8B74FF;
     width: 401px;
     height: 71px;
     margin-top: 40px;
     margin-left: 50px;
     border-radius: 10px;
-}
-
-a:active,
-a:hover,
-a {
-    text-decoration: none;
-}
-
-.arrow_svg {
-    margin-top: 12px;
-    margin-left: 12px;
-}
-
-.f_note {
-
-    background: none;
-    border: none;
-    text-align: left;
 }
 
 .note p {
@@ -341,17 +317,19 @@ a {
 }
 
 .vidjet_add {
-    height: 65px;
-    background-color: #5BFFD4;
+    height: 55px;
+    background-color: #8B74FF;
     border: none;
-    width: 501px
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 491px
 }
 
 .vidjet_add:hover {
-    height: 65px;
+    height: 55px;
     background-color: #9F78F3;
     border: none;
-    width: 501px;
+    width: 491px;
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
 }
@@ -379,6 +357,8 @@ html {
 }
 
 .delete {
+    margin-top: -20px;
+    margin-left: 270px;
     border: none;
     background: none;
 }
