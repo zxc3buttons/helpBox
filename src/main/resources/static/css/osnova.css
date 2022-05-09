@@ -290,6 +290,17 @@ ul.contact_list li {
     border-radius: 10px;
 }
 
+.holidays {
+    display: grid;
+    grid-template-columns: 301px auto;
+    border: 3px solid #8B74FF;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
 .note p {
     margin-top: -10px;
 }
@@ -371,4 +382,35 @@ html {
     margin-left: 270px;
     border: none;
     background: none;
+}
+
+.holiday {
+    padding-top: 10px;
+    padding-left: 10px;
+    font-weight: bold;
+    outline: none;
+    width: 401px;
+    height: 50px;
+    border: none;
+    resize: none;
+    overflow: none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.holiday_descr {
+    padding-left: 10px;
+    width: 350px;
+    height: 320px;
+    outline: none;
+    border: none;
+    resize: none;
+    overflow: none;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    background-color: white;
 }

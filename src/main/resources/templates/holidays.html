@@ -14,13 +14,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/calendar.css">
+    <link rel="stylesheet" href="/static/css/style.css">
     <script src="/static/js/note.js"></script>
 </head>
 
 <body>
 <header class="container">
     <div class="f_menu">
-        <h1 th:text = "${user.getFirstName()} + ' ' + ${user.getLastName()}"></h1>
+        <h1>Hello, World</h1>
     </div>
     <div class="logo_text">
         <h1>HELPBOX</h1>
@@ -91,26 +92,14 @@
         </div>
         <div id = "close_write" class="vidjet">
             <div class="vidjet_header">
-                <p>ЗАМЕТКИ</p>
+                <p>ПРАЗДНИКИ</p>
             </div>
             <div class="vidjet_notes" id="scrollbar">
-
-                <form action = "/auth/main/find" class="vidjet_note_search" method = "POST">
-                    <input class="note_search" type="text" name="title" placeholder="Поиск заметок" />
-                    <button class="poisk" type = "submit"><img src="/static/images/lupa.svg" class="svg_lupa"></button>
-                </form>
-
-                <div class="note" th:each = "note : ${notes}">
-                    <a class="f_note" th:href = "@{/auth/main/{id}(id = ${note.getId()})}">
-                        <p class = "note_txt_name" th:text = "${note.getTitle()}" />
-                        <p class = "note_txt" th:text = "${#dates.format(note.getDate(), 'dd-MM-yyyy')}" />
-                    </a>
-                    <form th:method = "DELETE" th:action = "@{/auth/{id}(id = ${note.getId()})}" class="s_note">
-                        <button class="delete" type="submit"><img src="/static/images/bucket.svg" class="svg_bucket"></button>
-                    </form>
+                <div class="holidays" th:each="entry: ${holidays}">
+                    <textarea class = "holiday" th:text = "${entry.key}" disabled/>
+                    <p></p>
+                    <textarea class="holiday_descr" th:text = "${entry.value}" disabled/>
                 </div>
-                <!--Если заметка не была найдена-->
-                <p style = "text-align: center" class = "note_txt_name" th:if = "${exception != null}" th:text = "${exception}" />
             </div>
             <button class="vidjet_add" id="okButton" onclick="return show_hide_note(this);">
                 <p>НОВАЯ ЗАМЕТКА</p>

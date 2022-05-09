@@ -13,21 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Arrays;
+import java.util.*;
 
 
 @Controller
 @RequestMapping("/auth")
 public class HolidaysController {
 
-    public final String URL = "https://www.calend.ru/holidays/7-1";
+    public final String URL = "https://www.calend.ru/holidays/1-8";
 
-    public List<String> result = new ArrayList<>();
-
-    public List<String> description = new ArrayList<>();
+    public Map<String, String> result = new Hashtable<>();
 
     public String getCurrentUrl() {
         LocalDateTime current = LocalDateTime.now();
@@ -63,8 +58,7 @@ public class HolidaysController {
                 for (int j = 0; j < 2; j++) {
                     text += about.eachText().get(j);
                 }
-                result.add(holidays.eachText().get(i));
-                description.add(text);
+                result.put(holidays.eachText().get(i), text);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -74,7 +68,7 @@ public class HolidaysController {
     @GetMapping("/holidays")
     public String getHolidays(Model model) {
         model.addAttribute("holidays", result);
-        return "osnova";
+        return "holidays";
     }
 
     @PostMapping("/holidays")
