@@ -115,10 +115,10 @@ ul.contact_list li {
 }
 
 .svg_bucket {
-    width: 30px;
-    height: 30px;
-    margin-left: 50px;
-    margin-top: 15px;
+    width: 45px;
+    height: 34px;
+    margin-left: 70px;
+    margin-bottom: 30px;
 }
 
 
@@ -228,7 +228,7 @@ ul.contact_list li {
     line-height: 20px;
     /* identical to box height, or 56% */
     color: #FFFFFF;
-    margin-top: -12px
+    margin-top: 20px
 }
 
 .check_btn {
@@ -291,33 +291,43 @@ ul.contact_list li {
 }
 
 .note p {
-    margin-top: 8px;
+    margin-top: -10px;
 }
 
-.note_txt_name {
+.note_txt_name,
+.note_txt_name:hover {
     padding-left: 10px;
+
     font-family: 'PT Sans Narrow';
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
     line-height: 20px;
+    text-decoration: none;
     /* identical to box height, or 67% */
     color: #696767;
 }
+.note_txt{
+ padding-top: 13px;
+}
+.note_txt,
+.note_txt:hover,
+ a,
+ a:hover{
 
-.note_txt {
     padding-left: 10px;
     font-family: 'PT Sans Narrow';
     font-style: normal;
     font-weight: 700;
     font-size: 15px;
     line-height: 20px;
+    text-decoration: none;
     /* identical to box height, or 91% */
     color: #B7B7B7;
 }
 
 .vidjet_add {
-    height: 55px;
+    height: 60px;
     background-color: #8B74FF;
     border: none;
     border-bottom-right-radius: 10px;
@@ -326,7 +336,7 @@ ul.contact_list li {
 }
 
 .vidjet_add:hover {
-    height: 55px;
+    height: 60px;
     background-color: #9F78F3;
     border: none;
     width: 491px;
@@ -357,7 +367,7 @@ html {
 }
 
 .delete {
-    margin-top: -20px;
+    margin-top: -40px;
     margin-left: 270px;
     border: none;
     background: none;
