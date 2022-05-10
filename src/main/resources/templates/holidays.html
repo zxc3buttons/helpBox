@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,17 +16,16 @@
     <link rel="stylesheet" href="/static/css/style.css">
     <script src="/static/js/note.js"></script>
 </head>
-
 <body>
 <header class="container">
     <div class="f_menu">
-        <h1>Hello, World</h1>
+        <h1 th:text = "${user.getFirstName()} + ' ' + ${user.getLastName()}"></h1>
     </div>
     <div class="logo_text">
         <h1>HELPBOX</h1>
     </div>
     <div class="sec-menu">
-        <img src="/static/images/menus.svg" alt="" width="17%" height="17%" class="svg_burger_menu">
+        <a href="#pop_menu"> <img src="/static/images/menus.svg" alt="" width="17%" height="17%" class="svg_burger_menu"> </a>
     </div>
 </header>
 <div class="content">
@@ -36,13 +34,13 @@
             <div class="calendar-header">
                 <span class="month-picker" id="month-picker" style="color:#7635FF"></span>
                 <div class="year-picker" style="color:#7635FF">
-                        <span class="year-change" id="prev-year">
+                     <span class="year-change" id="prev-year">
                         <pre style="color:#7635FF"><</pre>
-                    </span>
+                     </span>
                     <span id="year"></span>
                     <span class="year-change" id="next-year">
                         <pre style="color:#7635FF">></pre>
-                    </span>
+                     </span>
                 </div>
             </div>
             <div class="calendar-body">
@@ -58,7 +56,6 @@
                 <div class="calendar-days"></div>
             </div>
             <div class="calendar-footer">
-
             </div>
             <div class="month-list"></div>
         </div>
@@ -92,20 +89,55 @@
         </div>
         <div id = "close_write" class="vidjet">
             <div class="vidjet_header">
-                <p>ПРАЗДНИКИ</p>
+                <form action="/auth/holidays" method="POST" id="find">
+                    <table class="tb_head">
+                        <tr>
+                            <td>
+                                <input class="dropbtn" type="text" name="date" placeholder="День" required>
+                            </td>
+                            <td>
+                                <p>ПРАЗДНИКИ</p>
+                            </td>
+                            <td>
+                                <input class="dropbtn" type="text" name="month" placeholder="Месяц" required>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
             </div>
             <div class="vidjet_notes" id="scrollbar">
-                <div class="holidays" th:each="entry: ${holidays}">
-                    <textarea class = "holiday" th:text = "${entry.key}" disabled/>
-                    <p></p>
-                    <textarea class="holiday_descr" th:text = "${entry.value}" disabled/>
-                </div>
+                <table class="holidays" th:each="entry: ${holidays}">
+                    <tr>
+                        <td><textarea class = "holiday"  th:text = "${entry.key}" disabled/></td>
+                    </tr>
+                    <tr>
+                        <td><textarea class="holiday_descr" id="txt_hol"  style="min-height:150px;"  th:text = "${entry.value}" disabled/></td>
+                    </tr>
+                </table>
+                <textarea style="text-align: center" class="holiday" th:if="${exception != null}" th:text="${exception}"/>
             </div>
-            <button class="vidjet_add" id="okButton" onclick="return show_hide_note(this);">
-                <p>НОВАЯ ЗАМЕТКА</p>
+            <button class="vidjet_add" form="find">
+                <p>Найти праздники</p>
             </button>
         </div>
     </div>
-    <script src="/static/js/calendar.js"></script>
+    <div id="pop_menu" class="pop_menu">
+        <div class="popup_menu_cont">
+            <a href ="" class="arrow_btn_hol"><img src="/static/images/arrow.svg" style="margin-top: 10px;"></a>
+            <div class="popup_vidjet">
+                <a href="/auth/main/" >
+                    <p class="vid_p">Заметки</p>
+                </a>
+            </div>
+            <div class="popup_hol">
+                <a href="/auth/holidays">
+                    <p class="hol_p">Праздники</p>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="/static/js/calendar.js"></script>
 </body>
 </html>

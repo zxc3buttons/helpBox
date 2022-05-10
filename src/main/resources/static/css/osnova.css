@@ -1,6 +1,8 @@
+html,
 body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 .logo_text {
@@ -215,9 +217,14 @@ ul.contact_list li {
 .arrow_btn {
     background: none;
     border: none;
-    margin-top: 12px
+    margin-top: 12px;
 }
-
+.arrow_btn_hol {
+    background: none;
+    border: none;
+    margin-top: 15px;
+    margin-left: 10px;
+}
 .s_header_write {
     font-family: 'PT Sans Narrow';
     text-align: center;
@@ -325,7 +332,6 @@ ul.contact_list li {
 .note_txt:hover,
  a,
  a:hover{
-
     padding-left: 10px;
     font-family: 'PT Sans Narrow';
     font-style: normal;
@@ -384,27 +390,137 @@ html {
     background: none;
 }
 
+.pop_menu{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s ease 0s
+}
+.pop_menu:target{
+    opacity: 1;
+    visibility: visible;
+}
+.popup_menu_cont{
+  background-color: rgba(139, 116, 255, 0.9);
+    width: 620px;
+    height: 100%;
+    margin-left: auto;
+}
+.pop_bud{
+    height:100%;
+}
+.popup_vidjet{
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 45%;
+    height: 80px;
+    weight: 200px;
+    background-color: white;
+    border-radius: 15px;
+    border-style: solid;
+    border-weight: 1px;
+    border-color: #8B74FF;
+}
+.popup_vidjet:hover{
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 45%;
+    height: 80px;
+    weight: 200px;
+    background-color: white;
+    border-radius: 15px;
+    border-style: solid;
+    border-weight: 1px;
+    border-color: #6a4dff;
+}
+.popup_hol{
+      margin-left: 30px;
+      margin-right: 30px;
+      margin-top: 40px;
+      height: 80px;
+      weight: 200px;
+      background-color: white;
+      border-radius: 15px;
+      border-style: solid;
+      border-weight: 1px;
+      border-color: #8B74FF;
+}
+.popup_hol:hover{
+      margin-left: 30px;
+      margin-right: 30px;
+      margin-top: 40px;
+      height: 80px;
+      weight: 200px;
+      background-color: white;
+      border-radius: 15px;
+      border-style: solid;
+      border-weight: 1px;
+      border-color: #6a4dff;
+}
+.vid_p{
+    padding-top: 5px;
+    padding-left: 230px;
+    text-align: center
+    font-family: 'PT Sans Narrow';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 20px;
+    text-decoration: none;
+    /* identical to box height, or 91% */
+    color: #8B74FF;
+}
+.hol_p{
+    padding-top: 5px;
+    padding-left: 225px;
+    text-align: center
+    font-family: 'PT Sans Narrow';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 20px;
+    text-decoration: none;
+    /* identical to box height, or 91% */
+    color: #8B74FF;
+}
+.holidays {
+    display: grid;
+    grid-template-columns: 301px auto;
+    border: 3px solid #8B74FF;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
 .holiday {
     padding-top: 10px;
     padding-left: 10px;
     font-weight: bold;
+    font-family: 'PT Sans Narrow';
+    font-size: 20px;
     outline: none;
     width: 401px;
-    height: 50px;
+    height: auto;
     border: none;
     resize: none;
     overflow: none;
     box-shadow: none;
     -moz-box-shadow: none;
+    overflow: hidden;
     -webkit-box-shadow: none;
     background-color: white;
     border-radius: 10px;
 }
 
 .holiday_descr {
+    font-size: 15px;
     padding-left: 10px;
-    width: 350px;
-    height: 320px;
+    width: 390px;
+    height: 60px;
     outline: none;
     border: none;
     resize: none;
@@ -413,4 +529,62 @@ html {
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
     background-color: white;
+}
+#txt_hol::-webkit-scrollbar {
+    width: 12px;
+    background-color: white;
+}
+
+#txt_hol::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: linear-gradient(white, #8B74FF, white);
+    border: 2px solid #8B74FF;
+}
+
+
+.dropbtn {
+  background-color: #7458ff;
+  color: white;
+  font-family: 'PT Sans Narrow';
+  border-radius: 10px;
+  width: 90px;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: #6472ff;}
+.tb_head{
+    margin-left: 55px
+}
+input.dropbtn::placeholder {
+  color: white;
+  font-family: 'PT Sans Narrow';
+
 }
