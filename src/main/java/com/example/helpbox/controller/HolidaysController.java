@@ -86,7 +86,6 @@ public class HolidaysController {
             }
         }
     }
-
     @GetMapping("/holidays")
     public String getHolidays(Model model) throws IOException {
         if (!result.isEmpty()) {
