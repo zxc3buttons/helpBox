@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpBox</title>
     <link rel="stylesheet" href="/static/css/osnova.css">
-    <link rel="stylesheet" href="/static/css/calendar.css">
-    <link rel="icon" href="/static/images/newicon.ico" type="image/x-icon">
     <link rel="preload" href="/static/fonts/PTSansNarrow-Bold.ttf" as="font">
     <link rel="preload" href="/static/fonts/PTSansNarrow-Regular.ttf" as="font">
+    <link rel="icon" href="/static/images/newicon.ico" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/calendar.css">
+    <link rel="stylesheet" href="/static/css/style.css">
     <script src="/static/js/note.js"></script>
-    <script src="/static/js/vidjet.js"></script>
 </head>
 <body>
 <header class="container">
@@ -61,32 +61,64 @@
         </div>
     </div>
     <div class="vidjet_cont">
-        <div id = "open_write" class="vidjet_write">
+        <div id = "open_write" class="vidjet_write" hidden>
             <div class="vidjet_header_write">
                 <div class="f_header_write">
-                    <a class="arrow_btn" href = "/auth/main/"><img class = "arrow_svg" src="/static/images/arrow.svg"></a>
+                    <button id = "ArrowButton" class="arrow_btn" onclick="return show_hide_write(this);"><img src="/static/images/arrow.svg"></button>
                 </div>
                 <div class="s_header_write">
                     <p>ЗАМЕТКИ</p>
                 </div>
                 <div class="t_header_write">
-                    <button form = "add_s" class="check_btn"><img src="/static/images/check.svg"></button>
+                    <button form = "add" class="check_btn"><img src="/static/images/check.svg"></button>
                 </div>
             </div>
             <div class="vidjet_note">
-                <form th:method = "PUT" th:action = "@{/auth/{id}(id = ${note.getId()})}" th:object = "${note}" id = "add_s">
+                <form action="/auth/main/" method="POST" id = "add">
                     <div class="vidjet_note_title">
-                        <textarea class="note_title" type="text" th:field = "*{title}" placeholder="Введите название заметок" />
-
+                        <input class="note_title" type="text" name="title" placeholder="Введите название заметок" required/>
                     </div>
                     <div class="note_txt">
-                        <p style="margin-left: 40px;" th:text = "${#dates.format(note.getDate(), 'dd-MM-yyyy')}">Date</p>
+                        <p style="margin-left: 35px;">23.02.22</p>
                     </div>
                     <div class="write">
-                        <textarea class="note_txt_name" type="text" th:field = "*{text}" placeholder="Текст новой заметки" style="width: 401px; height: 500px; margin-left: 40px; resize: none; border: none; outline:none"></textarea>
+                        <textarea class="note_txt_name" type="text" name="text" placeholder="Текст новой заметки" style="width: 401px; height: 500px; margin-left: 40px; resize: none; border: none; outline:none" required></textarea>
                     </div>
                 </form>
             </div>
+        </div>
+        <div id = "close_write" class="vidjet">
+            <div class="vidjet_header">
+                <form action="/auth/holidays" method="POST" id="find">
+                    <table class="tb_head">
+                        <tr>
+                            <td>
+                                <input class="dropbtn" type="text" name="date" placeholder="День" required>
+                            </td>
+                            <td>
+                                <p>ПРАЗДНИКИ</p>
+                            </td>
+                            <td>
+                                <input class="dropbtn" type="text" name="month" placeholder="Месяц" required>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <div class="vidjet_notes" id="scrollbar">
+                <table class="holidays" th:each="entry: ${holidays}">
+                    <tr>
+                        <td><textarea class = "holiday"  th:text = "${entry.key}" disabled/></td>
+                    </tr>
+                    <tr>
+                        <td><textarea class="holiday_descr" id="txt_hol"  style="min-height:150px;"  th:text = "${entry.value}" disabled/></td>
+                    </tr>
+                </table>
+                <textarea style="text-align: center" class="holiday" th:if="${exception != null}" th:text="${exception}"/>
+            </div>
+            <button class="vidjet_add" form="find">
+                <p>Найти праздники</p>
+            </button>
         </div>
     </div>
     <div id="pop_menu" class="pop_menu">
